@@ -1,0 +1,9 @@
+"dataset","representation","method","k","n_used","silhouette","davies_bouldin","calinski_harabasz","adjusted_rand_index","normalized_mutual_information","clustering_accuracy","purity","runtime_sec"
+"housing_years","original","kmeans",2,27,0.656544353159961,0.444667378023024,95.2243815479214,NA,NA,NA,NA,0
+"housing_years","original","kmeans",3,27,0.601444727389597,0.492138001901209,123.505133851165,NA,NA,NA,NA,0
+"housing_years","original","kmeans",4,27,0.576943468633088,0.48737560023627,156.242355848672,NA,NA,NA,NA,0
+"housing_years","original","kmeans",5,27,0.546225339865974,0.494034117400764,175.569160311793,NA,NA,NA,NA,0
+"housing_years","sparsified","kmeans",2,27,0.396958974548812,0.74605184991402,11.6175797982999,NA,NA,NA,NA,0
+"housing_years","sparsified","kmeans",3,27,0.565933695409733,0.764731602176877,18.2536910471231,NA,NA,NA,NA,0
+"housing_years","sparsified","kmeans",4,27,0.675924163706872,0.550581214556078,39.9853033762001,NA,NA,NA,NA,0
+"housing_years","sparsified","kmeans",5,27,0.658013394766086,0.525223348093539,67.0076267961743,NA,NA,NA,NA,0
