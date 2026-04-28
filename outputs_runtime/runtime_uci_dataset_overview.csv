@@ -1,0 +1,11 @@
+"dataset","n","p_original","p_sparsified","true_k"
+"breast_tissue",106,9,36,6
+"hcv",615,13,49,5
+"wholesale_customers",440,7,25,3
+"vehicle_silhouettes",846,18,72,4
+"statlog_image_segmentation",2310,18,66,7
+"vertebral_column_3classes",310,6,24,3
+"vertebral_column_2classes",310,6,24,2
+"user_knowledge_modeling",403,5,20,5
+"banknote_authentication",1372,4,16,2
+"wine",178,13,52,3

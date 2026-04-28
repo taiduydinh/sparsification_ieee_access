@@ -1,0 +1,3 @@
+"dataset","representation","k","n","p","mean_sec","median_sec","sd_sec","min_sec","max_sec","reps","inner_rep"
+"housing_years","original",4,27,7,0.00179999999999978,0.00199999999999818,0.00176032217994706,0,0.0040000000000191,80,5
+"housing_years","sparsified",4,27,28,0.00209999999999951,0.00199999999999818,0.00168086776865232,0,0.0040000000000191,80,5
