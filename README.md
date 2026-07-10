@@ -271,34 +271,3 @@ Huiyi Xia and Tai Dinh,
 “On the Impact of Data Sparsification on Model Selection and Learning Performance,”
 manuscript submitted to IEEE Access, 2026.
 ```
-
-## Authors
-
-**Huiyi Xia**  
-Business School  
-Nanfang College Guangzhou  
-Guangzhou 510970, China  
-Email: xiayz_88@163.com
-
-**Tai Dinh**  
-Institute of Digital Technology  
-Thu Dau Mot University  
-Ho Chi Minh City, Vietnam  
-
-The Kyoto College of Graduate Studies for Informatics  
-Kyoto, Japan  
-
-Email: t_dinh@kcg.ac.jp  
-Email: taidd@tdmu.edu.vn
-
-Huiyi Xia and Tai Dinh contributed equally to this work and share first authorship.
-
-## Contact
-
-Questions concerning the source code, experimental configuration, or reproduction of the results may be submitted through the repository's issue tracker:
-
-[https://github.com/taiduydinh/sparsification_ieee_access/issues](https://github.com/taiduydinh/sparsification_ieee_access/issues)
-
-## License
-
-Please refer to the `LICENSE` file in this repository for the terms governing use and redistribution of the source code and experimental materials.
