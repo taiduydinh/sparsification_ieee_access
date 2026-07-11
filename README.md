@@ -11,17 +11,18 @@ This study investigates how feature-wise data sparsification affects model-selec
 
 Rather than treating sparsification only as a method for reducing representation density or computational cost, the study examines how transforming an original design matrix
 
-\[
-\mathbf{X}\in\mathbb{R}^{n\times p}
-\]
+The original design matrix is
 
-into a sparse expanded representation
+$$
+\mathbf{X} \in \mathbb{R}^{n \times p},
+$$
 
-\[
-\mathbf{X}_s\in\mathbb{R}^{n\times p_s},
-\qquad p_s>p,
-\]
+and it is transformed into a sparse expanded representation
 
+$$
+\mathbf{X}_s \in \mathbb{R}^{n \times p_s},
+\qquad p_s > p.
+$$
 changes the relationships among features and influences the behavior of learning algorithms.
 
 The number of observations remains unchanged during the transformation. Each original feature is represented through a collection of sparse component features, resulting in an expanded matrix containing many zero entries.
