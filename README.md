@@ -9,24 +9,22 @@ This repository contains the source code, experimental notebooks, datasets, and 
 
 This study investigates how feature-wise data sparsification affects model-selection behavior and clustering performance.
 
-Rather than treating sparsification only as a method for reducing representation density or computational cost, the study examines how transforming an original design matrix
-
-The original design matrix is
+Rather than treating sparsification only as a method for reducing representation density or computational cost, the study examines how an original design matrix
 
 $$
-\mathbf{X} \in \mathbb{R}^{n \times p},
+\mathbf{X} \in \mathbb{R}^{n \times p}
 $$
 
-and it is transformed into a sparse expanded representation
+is transformed into a sparse expanded representation
 
 $$
 \mathbf{X}_s \in \mathbb{R}^{n \times p_s},
 \qquad p_s > p.
 $$
 
-changes the relationships among features and influences the behavior of learning algorithms.
+The transformation changes the feature representation and the relationships among features while preserving the same number of observations.
 
-The number of observations remains unchanged during the transformation. Each original feature is represented through a collection of sparse component features, resulting in an expanded matrix containing many zero entries.
+Each original feature is represented through a collection of sparse component features, resulting in an expanded matrix containing many zero entries.
 
 The experiments cover:
 
@@ -46,10 +44,10 @@ The main objectives of this study are to:
 2. investigate whether sparsification affects coefficient-entry behavior in Lasso, Lars, and Glmnet;
 3. distinguish between final-model agreement and coefficient-path agreement;
 4. evaluate whether sparsification can improve clustering performance in selected datasets;
-5. examine the influence of sparsification on feature correlation and structural separability; and
+5. examine the influence of sparsification on feature relationships and correlation structure; and
 6. determine whether sparsification changes computational runtime.
 
-The study does not claim that sparsification universally improves prediction, clustering, or runtime. Its effects are evaluated empirically and may vary depending on the dataset, feature structure, correlation pattern, and sparsification configuration.
+The study does not claim that sparsification universally improves prediction, clustering, or runtime. Its effects are evaluated empirically and may vary depending on the dataset, feature structure, correlation pattern, learning algorithm, and sparsification configuration.
 
 ## Experimental Workflow
 
@@ -58,16 +56,16 @@ The experimental workflow consists of the following stages:
 1. **Original data representation**
 
    The input data are represented by an original design matrix  
-   \(\mathbf{X}\in\mathbb{R}^{n\times p}\).
+   $\mathbf{X}\in\mathbb{R}^{n\times p}$.
 
 2. **Feature-wise sparsification**
 
-   Each original feature is transformed into sparse component features while preserving the same \(n\) observations.
+   Each original feature is transformed into sparse component features while preserving the same $n$ observations.
 
 3. **Sparse expanded representation**
 
    The transformation produces  
-   \(\mathbf{X}_s\in\mathbb{R}^{n\times p_s}\), where \(p_s>p\).
+   $\mathbf{X}_s\in\mathbb{R}^{n\times p_s}$, where $p_s>p$.
 
 4. **Regression-based analysis**
 
@@ -75,11 +73,11 @@ The experimental workflow consists of the following stages:
 
 5. **Clustering-based analysis**
 
-   \(k\)-means clustering is applied to the original and sparsified representations.
+   $k$-means clustering is applied to the original and sparsified representations.
 
 6. **Performance evaluation**
 
-   The representations are evaluated using model-selection agreement, clustering metrics, visualization, correlation analysis, and runtime measurements.
+   The representations are evaluated using model-selection comparisons, clustering metrics, visualization, correlation analysis, and runtime measurements.
 
 ## Repository Contents
 
@@ -92,7 +90,7 @@ The main experimental notebooks are described below.
 | `runtime_comparison_fixed_outputs_runtime_v2.ipynb` | Conducts runtime comparisons for the original and sparsified representations. |
 | `README.md` | Provides an overview of the study and instructions for reproducing the experiments. |
 
-Additional data, figures, and output files may be organized into corresponding data and output directories.
+Additional datasets, figures, and output files may be organized into corresponding data and output directories.
 
 ## Datasets
 
@@ -116,7 +114,7 @@ The synthetic experiments compare:
 
 The synthetic examples are used to examine how changes in feature structure and correlation affect coefficient-entry paths and agreement among Lasso, Lars, and Glmnet.
 
-The small illustrative examples are intended to demonstrate the mechanism of the transformation. Additional simulation settings may be used to examine larger values of \(n\) and \(p\), different correlation structures, and different sparsification configurations.
+The small illustrative examples are intended to demonstrate the mechanism of the transformation. Additional simulation settings can be used to examine larger values of $n$ and $p$, different correlation structures, and alternative sparsification configurations.
 
 ### UCI Benchmark Data
 
@@ -127,7 +125,7 @@ For each dataset:
 - input attributes are separated from the reference class labels;
 - numerical features are standardized before clustering;
 - sparsification is applied only to the feature representation;
-- class labels are not used by the \(k\)-means algorithm;
+- class labels are not used by the $k$-means algorithm;
 - the number of clusters is set equal to the number of reference classes for external validation; and
 - the reference labels are used only to calculate external evaluation metrics.
 
@@ -145,6 +143,8 @@ The regression-based experiments use:
 - Lars; and
 - Glmnet.
 
+In the Glmnet experiments, the regularization setting should be interpreted consistently with the configuration specified in the corresponding notebook.
+
 The analysis distinguishes between two forms of agreement:
 
 1. **Final-model agreement:** whether the algorithms identify the same active variables or reach similar final coefficient patterns.
@@ -154,7 +154,7 @@ This distinction is important because two algorithms may reach the same final so
 
 ### Clustering
 
-Clustering is performed using \(k\)-means on both the original and sparsified feature representations.
+Clustering is performed using $k$-means on both the original and sparsified feature representations.
 
 The clustering analysis uses the following external evaluation metrics:
 
@@ -164,7 +164,7 @@ The clustering analysis uses the following external evaluation metrics:
 
 Average silhouette width is used as an internal clustering-quality measure.
 
-Principal component analysis is used only for visualizing the grouping structure and is not used as an external validation measure.
+Principal component analysis is used only for visualizing grouping structure and is not used as an external validation measure.
 
 ### Runtime Evaluation
 
@@ -174,10 +174,10 @@ The runtime experiments compare:
 
 - the model-selection algorithms;
 - regression analysis using original and sparsified representations;
-- \(k\)-means clustering on the UCI datasets; and
-- \(k\)-means clustering on the Chinese housing dataset.
+- $k$-means clustering on the UCI datasets; and
+- $k$-means clustering on the Chinese housing dataset.
 
-The runtime results should be interpreted as a secondary observation. Sparsification expands the feature dimension and therefore does not necessarily reduce execution time.
+The runtime results should be interpreted as a secondary observation. Because sparsification expands the feature dimension, it does not necessarily reduce execution time.
 
 ## Requirements
 
@@ -224,10 +224,9 @@ To obtain reproducible results:
 
 - use the software and package versions reported in the notebooks;
 - run all preprocessing cells before running the model-selection or clustering cells;
-- retain the specified random seeds;
-- use the same numbers of repeated runs and initializations;
+- retain the random seeds and initialization settings specified in the notebooks;
 - do not use reference class labels as clustering inputs;
-- preserve the original train/test or experimental configuration where applicable; and
+- preserve the original experimental configuration; and
 - record the hardware and software environment when reproducing runtime results.
 
 Minor runtime differences may occur because of differences in processor speed, memory, operating system, background processes, and package versions.
@@ -240,8 +239,8 @@ Running the notebooks generates outputs related to:
 - Lars coefficient paths;
 - Glmnet regularization paths;
 - original and sparsified design matrices;
-- feature-correlation comparisons;
-- model-selection agreement measures;
+- comparisons of feature relationships before and after sparsification;
+- comparisons of coefficient-entry paths and final coefficient patterns;
 - UCI clustering evaluation;
 - Chinese housing clustering analysis;
 - average silhouette width;
@@ -261,6 +260,18 @@ The study provides evidence that sparsification:
 - does not uniformly reduce runtime.
 
 The results do not establish that sparsification is universally beneficial. Its effect depends on the original data structure, feature correlations, transformation parameters, learning algorithm, and evaluation criterion.
+
+## Limitations
+
+The main limitations of the study include:
+
+- the small number of annual observations in the Chinese housing dataset;
+- the illustrative scale and structured construction of the initial synthetic examples;
+- dataset-dependent clustering results;
+- the absence of a general theoretical condition guaranteeing that sparsification will improve model-selection or clustering performance; and
+- the sensitivity of runtime measurements to hardware, software, and implementation details.
+
+These limitations should be considered when interpreting the results.
 
 ## Citation
 
