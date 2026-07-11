@@ -23,6 +23,7 @@ $$
 \mathbf{X}_s \in \mathbb{R}^{n \times p_s},
 \qquad p_s > p.
 $$
+
 changes the relationships among features and influences the behavior of learning algorithms.
 
 The number of observations remains unchanged during the transformation. Each original feature is represented through a collection of sparse component features, resulting in an expanded matrix containing many zero entries.
