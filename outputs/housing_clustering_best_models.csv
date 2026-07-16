@@ -1,3 +1,0 @@
-"dataset","representation","method","k","silhouette","davies_bouldin","calinski_harabasz","runtime_sec"
-"housing_years","original","kmeans",2,0.656544353159961,0.444667378023024,95.2243815479214,0
-"housing_years","sparsified","kmeans",4,0.675924163706872,0.550581214556078,39.9853033762001,0
