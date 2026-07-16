@@ -1,0 +1,198 @@
+$protocol
+                          item         value
+1      Independent repetitions            30
+2 Random starts per repetition            30
+3            k-means algorithm Hartigan-Wong
+4           Maximum iterations           100
+5                  Master seed      20260716
+6      Silhouette sample limit          1000
+7             Confidence level          0.95
+8     Sparsification intervals             4
+
+$selected_models
+  representation selected_k mean_silhouette representative_run
+1       original          2       0.6565444                  1
+2     sparsified          4       0.6759242                  1
+                                selection_rule
+1 highest mean silhouette; run closest to mean
+2 highest mean silhouette; run closest to mean
+
+$silhouette_summary
+         dataset representation method k     metric n_runs      mean
+4  housing_years       original kmeans 2 silhouette     30 0.6565444
+13 housing_years       original kmeans 3 silhouette     30 0.6014447
+22 housing_years       original kmeans 4 silhouette     30 0.5769435
+31 housing_years       original kmeans 5 silhouette     30 0.5456305
+40 housing_years     sparsified kmeans 2 silhouette     30 0.3969590
+49 housing_years     sparsified kmeans 3 silhouette     30 0.5659337
+58 housing_years     sparsified kmeans 4 silhouette     30 0.6759242
+67 housing_years     sparsified kmeans 5 silhouette     30 0.6580134
+            sd           se  ci_lower  ci_upper       min       max
+4  0.000000000 0.0000000000 0.6565444 0.6565444 0.6565444 0.6565444
+13 0.000000000 0.0000000000 0.6014447 0.6014447 0.6014447 0.6014447
+22 0.000000000 0.0000000000 0.5769435 0.5769435 0.5769435 0.5769435
+31 0.003258272 0.0005948764 0.5444138 0.5468471 0.5283790 0.5462253
+40 0.000000000 0.0000000000 0.3969590 0.3969590 0.3969590 0.3969590
+49 0.000000000 0.0000000000 0.5659337 0.5659337 0.5659337 0.5659337
+58 0.000000000 0.0000000000 0.6759242 0.6759242 0.6759242 0.6759242
+67 0.000000000 0.0000000000 0.6580134 0.6580134 0.6580134 0.6580134
+   confidence_level
+4              0.95
+13             0.95
+22             0.95
+31             0.95
+40             0.95
+49             0.95
+58             0.95
+67             0.95
+
+$paired_difference_summary
+         dataset method k                        metric
+1  housing_years kmeans 2           adjusted_rand_index
+2  housing_years kmeans 2           clustering_accuracy
+3  housing_years kmeans 2                        purity
+4  housing_years kmeans 2                    silhouette
+5  housing_years kmeans 2 normalized_mutual_information
+6  housing_years kmeans 2                davies_bouldin
+7  housing_years kmeans 2             calinski_harabasz
+8  housing_years kmeans 2                total_withinss
+9  housing_years kmeans 2                   runtime_sec
+10 housing_years kmeans 3           adjusted_rand_index
+11 housing_years kmeans 3           clustering_accuracy
+12 housing_years kmeans 3                        purity
+13 housing_years kmeans 3                    silhouette
+14 housing_years kmeans 3 normalized_mutual_information
+15 housing_years kmeans 3                davies_bouldin
+16 housing_years kmeans 3             calinski_harabasz
+17 housing_years kmeans 3                total_withinss
+18 housing_years kmeans 3                   runtime_sec
+19 housing_years kmeans 4           adjusted_rand_index
+20 housing_years kmeans 4           clustering_accuracy
+21 housing_years kmeans 4                        purity
+22 housing_years kmeans 4                    silhouette
+23 housing_years kmeans 4 normalized_mutual_information
+24 housing_years kmeans 4                davies_bouldin
+25 housing_years kmeans 4             calinski_harabasz
+26 housing_years kmeans 4                total_withinss
+27 housing_years kmeans 4                   runtime_sec
+28 housing_years kmeans 5           adjusted_rand_index
+29 housing_years kmeans 5           clustering_accuracy
+30 housing_years kmeans 5                        purity
+31 housing_years kmeans 5                    silhouette
+32 housing_years kmeans 5 normalized_mutual_information
+33 housing_years kmeans 5                davies_bouldin
+34 housing_years kmeans 5             calinski_harabasz
+35 housing_years kmeans 5                total_withinss
+36 housing_years kmeans 5                   runtime_sec
+       difference_definition n_pairs mean_difference sd_difference
+1  sparsified_minus_original       0              NA            NA
+2  sparsified_minus_original       0              NA            NA
+3  sparsified_minus_original       0              NA            NA
+4  sparsified_minus_original      30   -2.595854e-01  0.000000e+00
+5  sparsified_minus_original       0              NA            NA
+6  sparsified_minus_original      30    3.013845e-01  0.000000e+00
+7  sparsified_minus_original      30   -8.360680e+01  0.000000e+00
+8  sparsified_minus_original      30    4.591831e+02  0.000000e+00
+9  sparsified_minus_original      30    3.333333e-04  9.643055e-03
+10 sparsified_minus_original       0              NA            NA
+11 sparsified_minus_original       0              NA            NA
+12 sparsified_minus_original       0              NA            NA
+13 sparsified_minus_original      30   -3.551103e-02  0.000000e+00
+14 sparsified_minus_original       0              NA            NA
+15 sparsified_minus_original      30    2.725936e-01  0.000000e+00
+16 sparsified_minus_original      30   -1.052514e+02  0.000000e+00
+17 sparsified_minus_original      30    2.726407e+02  0.000000e+00
+18 sparsified_minus_original      30    1.666667e-03  9.498941e-03
+19 sparsified_minus_original       0              NA            NA
+20 sparsified_minus_original       0              NA            NA
+21 sparsified_minus_original       0              NA            NA
+22 sparsified_minus_original      30    9.898070e-02  0.000000e+00
+23 sparsified_minus_original       0              NA            NA
+24 sparsified_minus_original      30    6.320561e-02  0.000000e+00
+25 sparsified_minus_original      30   -1.162571e+02  1.538724e-14
+26 sparsified_minus_original      30    1.086142e+02  0.000000e+00
+27 sparsified_minus_original      30    1.333333e-03  9.732042e-03
+28 sparsified_minus_original       0              NA            NA
+29 sparsified_minus_original       0              NA            NA
+30 sparsified_minus_original       0              NA            NA
+31 sparsified_minus_original      30    1.123829e-01  3.258272e-03
+32 sparsified_minus_original       0              NA            NA
+33 sparsified_minus_original      30    3.049142e-02  3.822091e-03
+34 sparsified_minus_original      30   -1.083452e+02  1.184845e+00
+35 sparsified_minus_original      30    4.968665e+01  3.751956e-02
+36 sparsified_minus_original      30    1.000000e-03  8.448628e-03
+   se_difference      ci_lower      ci_upper min_difference max_difference
+1             NA            NA            NA             NA             NA
+2             NA            NA            NA             NA             NA
+3             NA            NA            NA             NA             NA
+4   0.000000e+00 -2.595854e-01 -2.595854e-01    -0.25958538    -0.25958538
+5             NA            NA            NA             NA             NA
+6   0.000000e+00  3.013845e-01  3.013845e-01     0.30138447     0.30138447
+7   0.000000e+00 -8.360680e+01 -8.360680e+01   -83.60680175   -83.60680175
+8   0.000000e+00  4.591831e+02  4.591831e+02   459.18312476   459.18312476
+9   1.760573e-03 -3.267443e-03  3.934109e-03    -0.02000000     0.02000000
+10            NA            NA            NA             NA             NA
+11            NA            NA            NA             NA             NA
+12            NA            NA            NA             NA             NA
+13  0.000000e+00 -3.551103e-02 -3.551103e-02    -0.03551103    -0.03551103
+14            NA            NA            NA             NA             NA
+15  0.000000e+00  2.725936e-01  2.725936e-01     0.27259360     0.27259360
+16  0.000000e+00 -1.052514e+02 -1.052514e+02  -105.25144280  -105.25144280
+17  0.000000e+00  2.726407e+02  2.726407e+02   272.64068419   272.64068419
+18  1.734261e-03 -1.880296e-03  5.213630e-03    -0.02000000     0.02000000
+19            NA            NA            NA             NA             NA
+20            NA            NA            NA             NA             NA
+21            NA            NA            NA             NA             NA
+22  0.000000e+00  9.898070e-02  9.898070e-02     0.09898070     0.09898070
+23            NA            NA            NA             NA             NA
+24  0.000000e+00  6.320561e-02  6.320561e-02     0.06320561     0.06320561
+25  2.809312e-15 -1.162571e+02 -1.162571e+02  -116.25705247  -116.25705247
+26  0.000000e+00  1.086142e+02  1.086142e+02   108.61416928   108.61416928
+27  1.776820e-03 -2.300671e-03  4.967338e-03    -0.02000000     0.02000000
+28            NA            NA            NA             NA             NA
+29            NA            NA            NA             NA             NA
+30            NA            NA            NA             NA             NA
+31  5.948764e-04  1.111663e-01  1.135996e-01     0.11178805     0.12963435
+32            NA            NA            NA             NA             NA
+33  6.978152e-04  2.906422e-02  3.191861e-02     0.01025478     0.03118923
+34  2.163221e-01 -1.087876e+02 -1.079028e+02  -108.56153352  -102.07187161
+35  6.850104e-03  4.967264e+01  4.970066e+01    49.48799953    49.69350265
+36  1.542501e-03 -2.154769e-03  4.154769e-03    -0.02000000     0.02000000
+   confidence_level
+1              0.95
+2              0.95
+3              0.95
+4              0.95
+5              0.95
+6              0.95
+7              0.95
+8              0.95
+9              0.95
+10             0.95
+11             0.95
+12             0.95
+13             0.95
+14             0.95
+15             0.95
+16             0.95
+17             0.95
+18             0.95
+19             0.95
+20             0.95
+21             0.95
+22             0.95
+23             0.95
+24             0.95
+25             0.95
+26             0.95
+27             0.95
+28             0.95
+29             0.95
+30             0.95
+31             0.95
+32             0.95
+33             0.95
+34             0.95
+35             0.95
+36             0.95
+

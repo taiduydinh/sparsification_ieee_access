@@ -1,0 +1,3 @@
+"representation","selected_k","mean_silhouette","representative_run","selection_rule"
+"original",2,0.656544353159961,1,"highest mean silhouette; run closest to mean"
+"sparsified",4,0.675924163706872,1,"highest mean silhouette; run closest to mean"
