@@ -11,16 +11,16 @@ This study investigates how feature-wise data sparsification affects model-selec
 
 Rather than treating sparsification only as a method for reducing representation density or computational cost, the study examines how an original design matrix
 
-\[
+$$
 \mathbf{X} \in \mathbb{R}^{n \times p}
-\]
+$$
 
 is transformed into a sparse expanded representation
 
-\[
+$$
 \mathbf{X}_s \in \mathbb{R}^{n \times p_s},
 \qquad p_s > p.
-\]
+$$
 
 The transformation changes the feature representation and the relationships among features while preserving the same number of observations.
 
@@ -35,7 +35,7 @@ The experiments cover:
 - clustering validation using ten UCI benchmark datasets;
 - clustering analysis of Chinese housing-price data;
 - comparison of original and sparsified representations using external and internal clustering metrics; and
-- a secondary runtime comparison for repeated UCI \(k\)-means experiments.
+- a secondary runtime comparison for repeated UCI $k$-means experiments.
 
 ## Research Objectives
 
@@ -47,7 +47,7 @@ The main objectives of this study are to:
 4. evaluate path agreement, support recovery, and predictive error across controlled Monte Carlo settings;
 5. evaluate whether sparsification can improve clustering performance in selected datasets;
 6. examine the influence of sparsification on feature relationships and correlation structure; and
-7. determine whether sparsification changes computational runtime in the repeated UCI \(k\)-means analysis.
+7. determine whether sparsification changes computational runtime in the repeated UCI $k$-means analysis.
 
 The study does not claim that sparsification universally improves prediction, clustering, model-selection agreement, or runtime. Its effects are evaluated empirically and may vary depending on sample size, feature dimension, correlation structure, dataset, learning algorithm, and sparsification configuration.
 
@@ -77,7 +77,7 @@ The `outputs/` directory contains saved numerical results and generated analysis
 |---|---|
 | `regression_figures_r_notebook.ipynb` | Generates the Chinese housing regression and coefficient-path results and the illustrative synthetic examples for Lasso, Lars, and Glmnet. |
 | `extended_monte_carlo_model_selection.ipynb` | Implements the extended Monte Carlo study, including the simulation design, sparsification configurations, random-seed specification, path-agreement calculations, support-recovery F1, test RMSE, and the numerical summaries/figure reported from the simulation study. |
-| `regression_figures_clustering_repeated_runs.ipynb` | Performs the repeated UCI and Chinese housing clustering analyses, repeated-run summaries, clustering figures, PCA visualizations, and the secondary UCI \(k\)-means runtime comparison. |
+| `regression_figures_clustering_repeated_runs.ipynb` | Performs the repeated UCI and Chinese housing clustering analyses, repeated-run summaries, clustering figures, PCA visualizations, and the secondary UCI $k$-means runtime comparison. |
 | `README.md` | Documents the repository structure and how the analyses map to the manuscript. |
 
 The filenames above correspond to the files currently provided in the repository.
@@ -99,7 +99,7 @@ The following table identifies where the main reproducibility materials are loca
 | Repeated UCI clustering | `regression_figures_clustering_repeated_runs.ipynb` |
 | Chinese housing clustering/PCA analysis | `regression_figures_clustering_repeated_runs.ipynb` |
 | Repeated-run clustering summaries | `regression_figures_clustering_repeated_runs.ipynb` and `outputs/` |
-| Secondary UCI \(k\)-means runtime analysis | `regression_figures_clustering_repeated_runs.ipynb` |
+| Secondary UCI $k$-means runtime analysis | `regression_figures_clustering_repeated_runs.ipynb` |
 | Software/package version information | Environment/version output cells in the executed notebooks |
 
 For reproducibility, the executable notebooks are the authoritative source for the exact parameter values, seed values, algorithm settings, and package versions used in the reported analyses. These values should not be changed when reproducing the manuscript results.
@@ -166,7 +166,7 @@ For each dataset:
 - zero-variance columns are removed;
 - numerical columns are standardized;
 - sparsification is applied only to the feature representation;
-- class labels are not supplied to the \(k\)-means algorithm;
+- class labels are not supplied to the $k$-means algorithm;
 - the number of clusters is set equal to the number of reference classes for external validation; and
 - reference labels are used only to calculate external evaluation metrics.
 
@@ -194,7 +194,7 @@ The extended Monte Carlo study formally evaluates path agreement rather than rel
 
 ### Clustering
 
-Clustering is performed with \(k\)-means on both the original and sparsified feature representations.
+Clustering is performed with $k$-means on both the original and sparsified feature representations.
 
 For the repeated clustering experiments, the notebooks retain the complete initialization and random-seed logic used in the manuscript. Each repetition is applied to the same fixed dataset, so the repeated-run intervals quantify **algorithmic variability caused by random initialization**, not observation-level sampling uncertainty or generalization uncertainty.
 
@@ -211,7 +211,7 @@ Principal component analysis is used only for visualization of the grouping stru
 
 Runtime is treated as a secondary analysis.
 
-The current manuscript reports the repeated UCI \(k\)-means runtime comparison for original and sparsified representations. The corresponding analysis is contained in:
+The current manuscript reports the repeated UCI $k$-means runtime comparison for original and sparsified representations. The corresponding analysis is contained in:
 
 ```text
 regression_figures_clustering_repeated_runs.ipynb
@@ -288,7 +288,7 @@ The first notebook reproduces the Chinese housing regression/path analysis and i
 
 The second notebook reproduces the extended Monte Carlo evaluation and exports the associated numerical results.
 
-The third notebook reproduces the repeated clustering analyses, clustering visualizations, Chinese housing PCA results, and the secondary UCI \(k\)-means runtime analysis.
+The third notebook reproduces the repeated clustering analyses, clustering visualizations, Chinese housing PCA results, and the secondary UCI $k$-means runtime analysis.
 
 ## Reproducibility Checklist
 
@@ -301,7 +301,7 @@ Before comparing reproduced results with the manuscript, verify that:
 - [ ] the same sparsification settings are used;
 - [ ] the same regularization-path settings are used;
 - [ ] reference class labels are never used as clustering inputs;
-- [ ] the repeated \(k\)-means initialization settings are unchanged;
+- [ ] the repeated $k$-means initialization settings are unchanged;
 - [ ] package versions match the versions recorded in the executed notebooks; and
 - [ ] exported numerical results are compared with the corresponding files in `outputs/`.
 
@@ -323,7 +323,7 @@ The repository provides or generates outputs related to:
 - Chinese housing clustering results;
 - average silhouette width;
 - PCA visualizations; and
-- the secondary UCI \(k\)-means runtime comparison.
+- the secondary UCI $k$-means runtime comparison.
 
 Where numerical results are exported during notebook execution, the saved files are stored under `outputs/`.
 
