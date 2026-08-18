@@ -1,0 +1,3 @@
+"path_specification","nlambda","lambda_min_ratio","thresh","maxit","disable_early_stopping","type_gaussian"
+"primary_controlled",200,0.01,1e-08,100000,TRUE,"naive"
+"sensitivity_dense_wide",400,0.001,1e-10,100000,TRUE,"naive"
