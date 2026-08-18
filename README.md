@@ -69,7 +69,7 @@ sparsification_ieee_access/
 
 The `data/` directory contains the datasets and input files used by the notebooks.
 
-The `outputs/` directory contains saved numerical results and generated analysis outputs used to reproduce the manuscript tables and figures.
+The `outputs/` directory contains saved numerical results and generated analysis outputs used to reproduce the manuscript tables and figures. The extended Monte Carlo outputs are stored under `outputs/extended_monte_carlo/`.
 
 ## Main Experimental Notebooks
 
@@ -91,10 +91,10 @@ The following table identifies where the main reproducibility materials are loca
 | Extended Monte Carlo implementation | `extended_monte_carlo_model_selection.ipynb` |
 | Monte Carlo simulation configuration | Configuration/setup cells in `extended_monte_carlo_model_selection.ipynb` |
 | Monte Carlo random seeds | Seed definitions in `extended_monte_carlo_model_selection.ipynb` |
-| Monte Carlo agreement metrics | `extended_monte_carlo_model_selection.ipynb` and saved files in `outputs/` |
-| Support-recovery F1 results | `extended_monte_carlo_model_selection.ipynb` and saved files in `outputs/` |
-| Test RMSE results | `extended_monte_carlo_model_selection.ipynb` and saved files in `outputs/` |
-| Monte Carlo numerical summaries and figure data | `outputs/` |
+| Monte Carlo agreement metrics | `extended_monte_carlo_model_selection.ipynb` and `outputs/extended_monte_carlo/` |
+| Support-recovery F1 results | `extended_monte_carlo_model_selection.ipynb` and `outputs/extended_monte_carlo/` |
+| Test RMSE results | `extended_monte_carlo_model_selection.ipynb` and `outputs/extended_monte_carlo/` |
+| Monte Carlo numerical summaries and figure data | `outputs/extended_monte_carlo/` |
 | Chinese housing regression/path analysis | `regression_figures_r_notebook.ipynb` |
 | Repeated UCI clustering | `regression_figures_clustering_repeated_runs.ipynb` |
 | Chinese housing clustering/PCA analysis | `regression_figures_clustering_repeated_runs.ipynb` |
@@ -149,9 +149,60 @@ The notebook contains the complete executable simulation workflow used for the m
 - test RMSE; and
 - generation/export of the numerical summaries and figure data.
 
-The exact parameter values and seed values are defined in the notebook rather than duplicated manually in this README, so that the executable analysis remains the single authoritative specification.
+The executable notebook remains the authoritative source for all exact parameter values and seed definitions. To make the reviewer-requested regularization-path controls easy to verify, the main Glmnet settings used in the extended Monte Carlo study are summarized here.
 
-Saved numerical outputs underlying the reported Monte Carlo results are retained in the `outputs/` directory.
+### Controlled Glmnet Path Specification
+
+The extended Monte Carlo analysis does not rely on Glmnet's automatically generated lambda sequence. For every original or sparsified representation, the notebook constructs an explicit grid of normalized fractions $\lambda/\lambda_{\max}$ and then converts that grid to the corresponding representation-specific absolute lambda values. This keeps the relative path range fixed across representations while allowing $\lambda_{\max}$ to reflect the standardized design for that representation.
+
+The **primary controlled specification** uses:
+
+- `alpha = 1` and Gaussian regression;
+- `standardize = FALSE`;
+- `intercept = FALSE`;
+- 200 explicitly constructed lambda values;
+- minimum normalized lambda fraction $\lambda/\lambda_{\max}=0.01$;
+- convergence tolerance `thresh = 1e-8`;
+- `maxit = 100000`;
+- `type.gaussian = "naive"`; and
+- automatic Glmnet path stopping disabled for the controlled comparison.
+
+The **path-sensitivity specification** uses the same Monte Carlo data, random seeds, preprocessing, and model-comparison protocol, but employs:
+
+- 400 explicitly constructed lambda values;
+- minimum normalized lambda fraction $\lambda/\lambda_{\max}=0.001$; and
+- convergence tolerance `thresh = 1e-10`.
+
+The remaining Glmnet controls are kept the same as in the primary analysis. The identical simulation seeds are used for the primary and sensitivity specifications so that their comparison is paired on the same generated training and test data.
+
+The complete numerical results are exported for all combinations of dimensional setting, correlation structure, and sparsification scheme for:
+
+- $A_{\mathrm{entry}}$;
+- $A_{\mathrm{set}}(s)$;
+- $A_{\mathrm{set}}(2s)$;
+- support-recovery F1; and
+- test RMSE.
+
+For each metric, the exported summaries include original and sparsified means, standard deviations, standard errors, 95% Monte Carlo confidence intervals, and paired-difference summaries.
+
+Saved Monte Carlo outputs are retained in:
+
+```text
+outputs/extended_monte_carlo/
+```
+
+Important files include:
+
+- `glmnet_path_specifications.csv`;
+- `lambda_fraction_grid_primary_controlled.csv`;
+- `lambda_fraction_grid_sensitivity_dense_wide.csv`;
+- `glmnet_path_diagnostics_primary.csv`;
+- `path_target_coverage_primary.csv`;
+- `complete_monte_carlo_results_primary.csv`;
+- `complete_monte_carlo_results_sensitivity.csv`;
+- `path_sensitivity_configuration_comparison.csv`;
+- `path_sensitivity_stability_summary.csv`; and
+- `session_info.txt`.
 
 ### UCI Benchmark Data
 
@@ -182,7 +233,8 @@ For the regularization-path comparisons:
 
 - Lasso and Lars are fitted using the implementations documented in the notebooks;
 - Glmnet is used as the Glmnet implementation of Lasso in the reported regression comparisons;
-- the exact path settings used for each reported experiment are specified in the executable notebooks; and
+- the extended Monte Carlo Glmnet analysis uses the explicitly controlled normalized lambda grids documented above and in the executable notebook;
+- a denser and wider controlled path is evaluated as a sensitivity analysis; and
 - original and sparsified representations are evaluated using the same documented experimental protocol for each comparison.
 
 The analysis distinguishes between two concepts:
@@ -222,6 +274,8 @@ Because sparsification expands the feature dimension, no general computational a
 ## Software Environment and Package Versions
 
 The experiments are provided as Jupyter notebooks using R and Python kernels.
+
+For the completed extended Monte Carlo run used for the revised submission, the executed notebook records **R 4.4.1**, **glmnet 4.1-10**, **lars 1.3**, and **MASS 7.3-60.2**. The full session information is also exported to `outputs/extended_monte_carlo/session_info.txt`.
 
 To preserve exact reproducibility:
 
@@ -325,7 +379,7 @@ The repository provides or generates outputs related to:
 - PCA visualizations; and
 - the secondary UCI $k$-means runtime comparison.
 
-Where numerical results are exported during notebook execution, the saved files are stored under `outputs/`.
+Where numerical results are exported during notebook execution, the saved files are stored under `outputs/`; the extended Monte Carlo primary, sensitivity, diagnostic, and complete-result files are stored specifically under `outputs/extended_monte_carlo/`.
 
 ## Interpretation of Results
 
@@ -335,8 +389,9 @@ The study provides evidence that sparsification:
 
 - can change dependencies among features and the effective input representation;
 - can change coefficient-entry behavior;
-- can increase agreement among the examined model-selection implementations in selected simulation settings;
-- does not necessarily improve support recovery or predictive RMSE;
+- can increase agreement among the examined model-selection implementations in selected simulation settings, with the clearest and most path-stable gains occurring in the high-dimensional correlated settings;
+- shows greater path-specification sensitivity for some entry-order results outside those main high-dimensional settings, so small entry-order effects should not be overinterpreted;
+- does not improve support recovery or predictive RMSE across the evaluated Monte Carlo configurations;
 - may improve clustering separation for selected datasets and metrics; and
 - does not uniformly reduce runtime.
 
@@ -348,7 +403,7 @@ The main limitations include:
 
 - the small number of annual observations in the Chinese housing dataset;
 - the illustrative nature of the initial synthetic examples;
-- setting-dependent Monte Carlo results;
+- setting-dependent Monte Carlo results, including some sensitivity of entry-order agreement to the regularization-path specification;
 - dataset- and metric-dependent clustering results;
 - the absence of a general theoretical condition guaranteeing improvement from sparsification; and
 - the sensitivity of runtime measurements to software, hardware, and implementation details.
