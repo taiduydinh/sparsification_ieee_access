@@ -1,0 +1,55 @@
+"analysis","item","statistic","value_numeric","value_text"
+"path","Lasso","valid_loyo_fits",27,NA
+"path","Lasso","median_kendall_tau_b",1,NA
+"path","Lasso","minimum_kendall_tau_b",0.523809523809524,NA
+"path","Lasso","year_with_minimum_tau_b",2020,NA
+"path","Lasso","first_entry_set_retained_percent",100,NA
+"path","Lasso","median_top3_set_jaccard",1,NA
+"path","Lasso","maximum_mean_absolute_rank_change",1.42857142857143,NA
+"path","Lasso","full_sample_entry_order",NA,"x7(1) > x5(2) > x4(3) > x3(4) > x6(5) > x2(6) > x1(7)"
+"path","Lars","valid_loyo_fits",27,NA
+"path","Lars","median_kendall_tau_b",1,NA
+"path","Lars","minimum_kendall_tau_b",0.523809523809524,NA
+"path","Lars","year_with_minimum_tau_b",2020,NA
+"path","Lars","first_entry_set_retained_percent",100,NA
+"path","Lars","median_top3_set_jaccard",1,NA
+"path","Lars","maximum_mean_absolute_rank_change",1.42857142857143,NA
+"path","Lars","full_sample_entry_order",NA,"x7(1) > x5(2) > x4(3) > x3(4) > x6(5) > x2(6) > x1(7)"
+"path","Glmnet","valid_loyo_fits",27,NA
+"path","Glmnet","median_kendall_tau_b",1,NA
+"path","Glmnet","minimum_kendall_tau_b",0.651583765535002,NA
+"path","Glmnet","year_with_minimum_tau_b",2020,NA
+"path","Glmnet","first_entry_set_retained_percent",100,NA
+"path","Glmnet","median_top3_set_jaccard",1,NA
+"path","Glmnet","maximum_mean_absolute_rank_change",1.14285714285714,NA
+"path","Glmnet","full_sample_entry_order",NA,"x7(1) > x5(2) > x4(3) > x1(4) > x2(4) > x3(4) > x6(4)"
+"clustering","original","full_sample_selected_k",2,NA
+"clustering","sparsified","full_sample_selected_k",4,NA
+"clustering","original","loyo_selected_k_matches_full_percent",100,NA
+"clustering","sparsified","loyo_selected_k_matches_full_percent",88.8888888888889,NA
+"clustering","original","loyo_selected_k_counts",NA,"k=2:27"
+"clustering","sparsified","loyo_selected_k_counts",NA,"k=4:24; k=5:3"
+"clustering","k=2","full_sample_sparse_minus_original_mean_silhouette",-0.259585378611149,NA
+"clustering","k=2","minimum_loyo_sparse_minus_original_mean_silhouette",-0.345466083352291,NA
+"clustering","k=2","maximum_loyo_sparse_minus_original_mean_silhouette",-0.253693513524918,NA
+"clustering","k=2","maximum_absolute_change_from_full",0.085880704741142,NA
+"clustering","k=2","year_with_maximum_absolute_change_from_full",2012,NA
+"clustering","k=2","loyo_difference_sign_matches_full_percent",100,NA
+"clustering","k=3","full_sample_sparse_minus_original_mean_silhouette",-0.0355110319798638,NA
+"clustering","k=3","minimum_loyo_sparse_minus_original_mean_silhouette",-0.124464296516567,NA
+"clustering","k=3","maximum_loyo_sparse_minus_original_mean_silhouette",-0.0301286614990806,NA
+"clustering","k=3","maximum_absolute_change_from_full",0.0889532645367028,NA
+"clustering","k=3","year_with_maximum_absolute_change_from_full",2018,NA
+"clustering","k=3","loyo_difference_sign_matches_full_percent",100,NA
+"clustering","k=4","full_sample_sparse_minus_original_mean_silhouette",0.098980695073784,NA
+"clustering","k=4","minimum_loyo_sparse_minus_original_mean_silhouette",0.0141670228593405,NA
+"clustering","k=4","maximum_loyo_sparse_minus_original_mean_silhouette",0.102051697683411,NA
+"clustering","k=4","maximum_absolute_change_from_full",0.0848136722144436,NA
+"clustering","k=4","year_with_maximum_absolute_change_from_full",2018,NA
+"clustering","k=4","loyo_difference_sign_matches_full_percent",100,NA
+"clustering","k=5","full_sample_sparse_minus_original_mean_silhouette",0.112382931305851,NA
+"clustering","k=5","minimum_loyo_sparse_minus_original_mean_silhouette",0.0149270828644114,NA
+"clustering","k=5","maximum_loyo_sparse_minus_original_mean_silhouette",0.124906023858629,NA
+"clustering","k=5","maximum_absolute_change_from_full",0.0974558484414393,NA
+"clustering","k=5","year_with_maximum_absolute_change_from_full",2019,NA
+"clustering","k=5","loyo_difference_sign_matches_full_percent",100,NA
