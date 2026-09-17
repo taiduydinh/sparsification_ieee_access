@@ -1,0 +1,6 @@
+"path_specification","scenario_id","replication","seed","n","p","correlation","representation","scheme","abs_f1_difference","abs_rmse_difference","abs_parent_count_difference_s","abs_parent_count_difference_2s","relative_noise_sd_difference","component_dimension_difference","raw_density_difference","lambda_max_relative_difference","requested_points_difference","requested_ratio_difference","archived_returned_points","current_returned_points","archived_jerr"
+"primary_controlled",1,1,20360712,100,20,"independent","original","original",0,2.66453525910038e-15,0,0,1.9643982641623e-15,0,0,2.66453525910038e-15,0,0,200,200,0
+"primary_controlled",1,1,20360712,100,20,"independent","sparsified","quantile_2",1.11022302462516e-16,8.88178419700125e-16,0,0,1.9643982641623e-15,0,0,1.99840144432528e-15,0,0,200,200,0
+"primary_controlled",1,1,20360712,100,20,"independent","sparsified","quantile_4",1.11022302462516e-16,2.66453525910038e-15,0,0,1.9643982641623e-15,0,0,1.55431223447522e-15,0,0,200,200,0
+"primary_controlled",1,1,20360712,100,20,"independent","sparsified","quantile_8",0,2.66453525910038e-15,0,0,1.9643982641623e-15,0,0,2.22044604925031e-16,0,0,200,200,0
+"primary_controlled",1,1,20360712,100,20,"independent","sparsified","equal_width_4",1.11022302462516e-16,4.44089209850063e-16,0,0,1.9643982641623e-15,0,0,4.44089209850063e-16,0,0,200,200,0

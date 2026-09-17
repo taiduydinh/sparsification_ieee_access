@@ -1,0 +1,4 @@
+"method","group_weight_specification","configurations","configurations_f1_improved","configurations_f1_decreased","configurations_rmse_improved","configurations_rmse_worsened","median_delta_f1_s","median_delta_rmse_s","median_entry_tau_original_vs_sparse","median_jaccard_s_original_vs_sparse","median_sparse_component_count_at_s"
+"component_lasso_glmnet","not_applicable",8,0,8,0,8,-0.1875,0.493620916012099,0.374666271430573,0.4375,15
+"parent_group_lasso_grpreg","equal_parent",8,0,7,1,7,-0.181104651162791,0.213693204873473,0.338666323130894,0.475779967159277,40
+"parent_group_lasso_grpreg","sqrt_group_size",8,0,7,0,8,-0.125,0.241735358848326,0.351263249426959,0.535303776683087,40
